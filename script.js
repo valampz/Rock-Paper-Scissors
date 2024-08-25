@@ -1,6 +1,4 @@
 const arr = ["rock", "paper", "scissor"];
-let computeScore = 0;
-let humanScore = 0;
 
 function getComputerChoice(){
     return arr[Math.floor(Math.random() * 3)];    
@@ -18,59 +16,60 @@ function getHumanChoice(){
     }
 }
 
-
-function playRound(humanChoice, computerChoice){
-   
-    humanChoice = humanChoice.toLowerCase();
-
-    if (humanChoice === 'rock'){
-        switch (computerChoice){
-            case 'paper':
-                computeScore++;
-                return 'You lose! Paper beats Rock';
-                break;
-            case 'scissor':
-                humanScore++;
-                return 'You win! Rock beats Scissor';
-                break;
-            default:
-                return 'Nobody wins!';
-        }
-    }
-
-    else if (humanChoice === 'paper'){
-        switch (computerChoice){
-            case 'rock':
-                humanScore++;
-                return 'You win! Paper beats Rock';
-                break;
-            case 'scissor':
-                computeScore++;
-                return 'You lose! Scissor beats Paper';
-                break;
-            default:
-                return 'Nobody wins!';
-        }
-    }
-
-    else if (humanChoice === 'scissor'){
-        switch (computerChoice){
-            case 'paper':
-                humanScore++;
-                return 'You win! Scissor beats Paper';
-                break;
-            case 'rock':
-                computeScore++;
-                return 'You lose! Rock beats Scissor';
-                break;
-            default:
-                return 'Nobody wins!';
-        }
-    }
-}
-
 function playGame(){
+    let computeScore = 0;
+    let humanScore = 0;
+
+    function playRound(humanChoice, computerChoice){
+   
+        humanChoice = humanChoice.toLowerCase();
     
+        if (humanChoice === 'rock'){
+            switch (computerChoice){
+                case 'paper':
+                    computeScore++;
+                    return 'You lose! Paper beats Rock';
+                    break;
+                case 'scissor':
+                    humanScore++;
+                    return 'You win! Rock beats Scissor';
+                    break;
+                default:
+                    return 'Nobody wins!';
+            }
+        }
+    
+        else if (humanChoice === 'paper'){
+            switch (computerChoice){
+                case 'rock':
+                    humanScore++;
+                    return 'You win! Paper beats Rock';
+                    break;
+                case 'scissor':
+                    computeScore++;
+                    return 'You lose! Scissor beats Paper';
+                    break;
+                default:
+                    return 'Nobody wins!';
+            }
+        }
+    
+        else if (humanChoice === 'scissor'){
+            switch (computerChoice){
+                case 'paper':
+                    humanScore++;
+                    return 'You win! Scissor beats Paper';
+                    break;
+                case 'rock':
+                    computeScore++;
+                    return 'You lose! Rock beats Scissor';
+                    break;
+                default:
+                    return 'Nobody wins!';
+            }
+        }
+    }
+
     for(let i = 0; i < 5; i++){
         const humanChoice = getHumanChoice();
         const computerChoice = getComputerChoice();
