@@ -7,19 +7,14 @@ function getComputerChoice(){
 }
 
 function getHumanChoice(){
-    let userMove = window.prompt('Rock, Paper or Scissor?');
-
-    if(arr.includes(userMove.toLowerCase())){
-        return userMove;
-    }
-    else{
-        return `Enter a valid input`;
-    }
+    return window.prompt('Rock, Paper or Scissor?');
 }
 
 
 function playRound(humanChoice, computerChoice){
    
+    humanChoice = humanChoice.toLowerCase();
+
     if (humanChoice === 'rock'){
         switch (computerChoice){
             case 'paper':
@@ -72,7 +67,7 @@ function playRound(humanChoice, computerChoice){
     }
 }
 
-const humanChoice = getHumanChoice().toLowerCase();
+const humanChoice = getHumanChoice();
 const computerChoice = getComputerChoice();
 
 console.log(playRound(humanChoice, computerChoice));
