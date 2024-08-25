@@ -67,7 +67,11 @@ function playRound(humanChoice, computerChoice){
     }
 }
 
-const humanChoice = getHumanChoice();
-const computerChoice = getComputerChoice();
 
-console.log(playRound(humanChoice, computerChoice));
+for(let i = 0; i < 5; i++){
+    const humanChoice = getHumanChoice();
+    const computerChoice = getComputerChoice();
+    console.log(playRound(humanChoice, computerChoice));
+}
+
+console.log(humanScore > computeScore? 'You\'re the winner!' : 'computer\'s the winner!' );
