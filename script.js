@@ -26,13 +26,11 @@ function playRound(humanChoice, computerChoice){
     if (humanChoice === 'rock'){
         switch (computerChoice){
             case 'paper':
-                humanScore--;
                 computeScore++;
                 return 'You lose! Paper beats Rock';
                 break;
             case 'scissor':
                 humanScore++;
-                computeScore--;
                 return 'You win! Rock beats Scissor';
                 break;
             default:
@@ -44,11 +42,9 @@ function playRound(humanChoice, computerChoice){
         switch (computerChoice){
             case 'rock':
                 humanScore++;
-                computeScore--;
                 return 'You win! Paper beats Rock';
                 break;
             case 'scissor':
-                humanScore--;
                 computeScore++;
                 return 'You lose! Scissor beats Paper';
                 break;
@@ -61,11 +57,9 @@ function playRound(humanChoice, computerChoice){
         switch (computerChoice){
             case 'paper':
                 humanScore++;
-                computeScore--;
                 return 'You win! Scissor beats Paper';
                 break;
             case 'rock':
-                humanScore--;
                 computeScore++;
                 return 'You lose! Rock beats Scissor';
                 break;
@@ -75,11 +69,21 @@ function playRound(humanChoice, computerChoice){
     }
 }
 
+function playGame(){
+    
+    for(let i = 0; i < 5; i++){
+        const humanChoice = getHumanChoice();
+        const computerChoice = getComputerChoice();
+        console.log(playRound(humanChoice, computerChoice));
+    }
 
-for(let i = 0; i < 5; i++){
-    const humanChoice = getHumanChoice();
-    const computerChoice = getComputerChoice();
-    console.log(playRound(humanChoice, computerChoice));
+    if (humanScore > computeScore) {
+        console.log('You\'re the winner!');
+    } else if (humanScore < computeScore) {
+        console.log('Computer\'s the winner!');
+    } else {
+        console.log('It\'s a tie!');
+    }
 }
 
-console.log(humanScore > computeScore? 'You\'re the winner!' : 'computer\'s the winner!' );
+playGame();
