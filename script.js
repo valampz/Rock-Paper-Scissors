@@ -7,7 +7,15 @@ function getComputerChoice(){
 }
 
 function getHumanChoice(){
-    return window.prompt('Rock, Paper or Scissor?');
+    let choice;
+    while (true) {
+        choice = window.prompt('Rock, Paper, or Scissor?').toLowerCase();
+        if (arr.includes(choice)) {
+            return choice;
+        } else {
+            alert('Invalid input. Please enter Rock, Paper, or Scissor.');
+        }
+    }
 }
 
 
